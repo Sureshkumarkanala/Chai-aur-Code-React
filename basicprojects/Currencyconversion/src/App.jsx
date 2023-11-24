@@ -1,7 +1,6 @@
 import { useState } from "react";
 import InputBox from "./Components/InputBox";
 import useCurrencyInfo from "./CustomHook/useCurrencyInfo";
-// import "./App.css";
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -10,8 +9,9 @@ function App() {
   const [convertedAmount, setConvertedAmount] = useState(0);
 
   const currencyInfo = useCurrencyInfo(from);
-
+  console.log("currencyInfo", currencyInfo);
   const options = Object.keys(currencyInfo);
+  console.log(options);
 
   const swap = () => {
     setFrom(to);
@@ -69,6 +69,7 @@ function App() {
                 selectCurrency={to}
                 amountDisable
               />
+              <p className="text-black/40 mb-2 w-full">Currency Type</p>
             </div>
 
             <button
