@@ -49,20 +49,11 @@
 // }
 // export default Props;
 
-import React from "react";
-
-function Props(data) {
+function Props(prop) {
   return (
     <div>
-      <button
-        onClick={() => {
-          data.changefuntion(5);
-        }}
-      >
-        multiply{" "}
-      </button>
+      <button onClick={(e) => prop.data(10)}>click to change value</button>
     </div>
   );
 }
-
 export default Props;

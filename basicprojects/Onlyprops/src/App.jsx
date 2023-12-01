@@ -23,17 +23,17 @@
 // // }
 
 // function App() {
-//   const [count, setCount] = useState(0);
-//   const [inval, setInval] = useState(1);
+// const [count, setCount] = useState(0);
+// const [inval, setInval] = useState(1);
 
-//   function statechange(a) {
-//     setCount(a * 10);
-//   }
+// function statechange(a) {
+//   setCount(a * 10);
+// }
 
-//   const valuechange = (num) => {
-//     console.log("num is ", num);
-//     setInval(num * 100);
-//   };
+// const valuechange = (num) => {
+//   console.log("num is ", num);
+//   setInval(num * 100);
+// };
 //   return (
 //     <>
 //       {/* <Props name="Arun" num={value} /> */}
@@ -47,7 +47,9 @@
 //       {/* <Props addfun={calldata} /> */}
 //       <Props statevalue={statechange} />
 //       <p>First value is {inval}</p>
-//       <Props inpdata={valuechange} />
+{
+  /* <Props inpdata={valuechange} />; */
+}
 //     </>
 //   );
 // }
@@ -65,18 +67,20 @@
 //8.pass the function written in the parent,and pass  as a prop to the child component
 //  and give the arguements in the child it will execute in the parent
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Props from "./Props";
 function App() {
-  const [firstalue, setFirstvalue] = useState(0);
+  const [count, setCount] = useState("0");
 
-  const multiply = (val) => {
-    setFirstvalue(val * 10);
+  const mulfun = (val) => {
+    let value = val * val;
+    setCount(value);
   };
   return (
-    <div>
-      <p>Initial value is {firstalue}</p>
-      <Props changefuntion={multiply} />
+    <div style={{ marginLeft: "20px" }}>
+      App component
+      <p>Initial value {count}</p>
+      <Props data={mulfun} />
     </div>
   );
 }
